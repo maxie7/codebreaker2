@@ -48,7 +48,7 @@ module Codebreaker
       end
 
       @move_number -= 1
-      return "Game over" if @move_number < 0
+      return "Game over" if @move_number == 0
       return "You win" if result == "++++"
       result
     end
