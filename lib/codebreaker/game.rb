@@ -12,8 +12,6 @@ module Codebreaker
 
     def start
       @secret_code = generate_secret_code
-      @hints = N_HINT
-      @move_number = N_MOVES
     end
 
     def victory
@@ -50,6 +48,8 @@ module Codebreaker
       end
 
       @move_number -= 1
+      return "Game over" if @move_number < 0
+      return "You win" if result == "++++"
       result
     end
 
@@ -63,8 +63,6 @@ module Codebreaker
       x = rand(4)
       "One of the numbers in the secret code is #{@secret_code[x]}"
     end
-
-    private
 
     def generate_secret_code
       (1..4).map{rand(1..6)}.join
